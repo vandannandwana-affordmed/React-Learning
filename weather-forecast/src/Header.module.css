@@ -1,0 +1,29 @@
+header {
+    background-color: rgba(0, 0, 0, 0.877);
+    color: #ffffff;
+    display: flex;
+    padding: 12px;
+    justify-content: space-between;
+}
+
+.search_form {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.search_box {
+    padding: 8px;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+.search_form button {
+    padding: 8px;
+    border-radius: 7px;
+}
+
+.search_form button:hover {
+    background-color: black;
+    color: white;
+}

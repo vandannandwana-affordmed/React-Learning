@@ -1,0 +1,88 @@
+li {
+    list-style: none;
+}
+
+.weather_card {
+    width: 70vw;
+    height: 80vh;
+    background-color: white;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.summary_section {
+    display: flex;
+    justify-content: space-between;
+    margin: 28px;
+}
+
+.top_left_section {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    justify-content: start;
+}
+
+.weather_info {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    text-align: end;
+}
+
+.city_date {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.temp_degree {
+    display: flex;
+    align-items: start;
+    font-weight: 600;
+    font-size: 62px;
+    font-family: tempratureFont;
+    gap: 8px;
+}
+
+.celcious_text {
+    font-size: 24px;
+}
+
+.weather_info {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    font-size: 18px;
+    text-align: end;
+}
+
+.forecast_section {
+    margin: 0px 28px 28px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    justify-content: center;
+}
+
+.forecast_heading {
+    font-size: 32px;
+}
+
+.forecast_section {
+    margin: 0px 28px 28px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    justify-content: center;
+}
+
+.days_list {
+    width: 100%;
+    display: flex;
+    overflow-x: auto;
+}
