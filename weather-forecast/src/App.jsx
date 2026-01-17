@@ -6,69 +6,77 @@ import { useEffect, useState } from "react";
 import Notification from "./Notification";
 
 async function fetchWeather(query) {
-  const fetch_url =`https://api.weatherapi.com/v1/forecast.json?key={YOUR_API_KEY}&q=${query}&days=7`;
+  const API_KEY = import.meta.env.VITE_API_KEY;
+  if (!API_KEY) {
+    throw new Error("API key is not set");
+  }
+
+  const fetch_url = `https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${query}&days=7`;
   const response = await fetch(fetch_url);
 
   if (!response.ok) {
-    throw new Error(data?.error?.message || "Weather API error");
+    throw new Error(response?.error?.message || "Weather API error");
   }
 
   return response.json();
 }
 
-function getOwnLocation() {
-    return new Promise((resolve, reject)=>{
-        if (!("geolocation" in navigator)) {
-            reject("Geolocation is not supported by your browser.");
-            return;
-        }
-        navigator.geolocation.getCurrentPosition(
-            (position) => {
-                const latitude = position.coords.latitude;
-                const longitude = position.coords.longitude;
-                resolve(`${latitude},${longitude}`);
-            },
-            (error) => {
-                reject(error.message);
-            }
-        );
-    })
+async function getOwnLocation() {
+  return new Promise((resolve, reject) => {
+    if (!("geolocation" in navigator)) {
+      reject("Geolocation is not supported by your browser.");
+      return;
+    }
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
+        resolve(`${latitude},${longitude}`);
+      },
+      (error) => {
+        reject(error.message);
+      }
+    );
+  });
 }
 
 function App() {
   const [notification, setNotification] = useState({
     text: "",
     color: "",
-    isShow: false,
-  })
-  // const 
-  const savedLocation = localStorage.getItem("location");
-  const [query, setQuery] = useState(savedLocation || "udaipur");
+    isVisible: false,
+  });
+  const [query, setQuery] = useState(()=> {
+    return localStorage.getItem("location") || "Udaipur";
+  });
   const [isLoading, setIsLoading] = useState(false);
   const [weatherData, setWeatherData] = useState({
     cityName: "",
     countryName: "",
-    statename: "",
-    localtime: "",
-    temprature: "",
+    stateName: "",
+    localTime: "",
+    temperature: "",
     windSpeed: "",
     humidity: "",
-    icon: "./src/assets/react.svg",
+    icon: "",
     uvIndex: "",
     precipitation: "",
     forecastDays: [],
   });
 
   useEffect(() => {
-    setIsLoading(true);
-    fetchWeather(query)
-      .then((data) => {
+    const controller = new AbortController();
+
+    async function load() {
+      try {
+        setIsLoading(true);
+        const data = await fetchWeather(query, controller.signal);
         setWeatherData({
           cityName: data.location.name,
           countryName: data.location.country,
-          statename: data.location.region,
-          localtime: data.location.localtime,
-          temprature: data.current.temp_c,
+          stateName: data.location.region,
+          localTime: data.location.localtime,
+          temperature: data.current.temp_c,
           windSpeed: data.current.wind_mph,
           humidity: data.current.humidity,
           icon: data.current.condition.icon,
@@ -78,48 +86,50 @@ function App() {
         });
         localStorage.setItem("location", query);
         handleNotification("Weather data fetched successfully", "green");
-      })
-      .catch((err)=>{
-        handleNotification(err.message, "red");
-        console.error(err);
-      })
-      .finally(()=>{
+      } catch (err) {
+        if (err !== "AbortError") {
+          handleNotification("Something went wrong", "red");
+        }
+      } finally {
         setIsLoading(false);
-      });
+      }
+    }
+
+    load();
+
+    return () => controller.abort();
   }, [query]);
 
-  function handleOwnLocation() {
-      getOwnLocation()
-          .then((location) => {
-              setQuery(location);
-          })
-          .catch((error) => {
-              console.log(error);
-              handleNotification(error, "red");
-          });
+  async function handleOwnLocation() {
+    try {
+      const location = await getOwnLocation();
+      setQuery(location);
+    } catch {
+      handleNotification("Failed to get location", "red");
+    }
   }
 
   function handleNotification(text, color) {
     setNotification({
       text: text,
       color: color,
-      isShow: true,
+      isVisible: true,
     });
-    setTimeout(()=>{
+    setTimeout(() => {
       setNotification({
         text: "",
         color: "",
-        isShow: false,
-      })
-    }, 5000)
+        isVisible: false,
+      });
+    }, 5000);
   }
 
   return (
     <>
-      <div id="loader" style={{display: isLoading ? "block" : "none"}}></div>
+      <div id="loader" style={{ display: isLoading ? "block" : "none" }}></div>
       <header>
         <Header
-          citySearch={(cityName) => {
+          onSearch={(cityName) => {
             setQuery(cityName);
           }}
         />
@@ -129,10 +139,14 @@ function App() {
         <Notification notification={notification} />
       </div>
 
-      <aside onClick={handleOwnLocation}>
-        <img src="./src/assets/location_ic.png" width="36" alt="" />
+      <div id="location_button" onClick={handleOwnLocation}>
+        <img
+          src="./src/assets/location_ic.png"
+          width="36"
+          alt="icon to get your current location"
+        />
         <p>click to get your location</p>
-      </aside>
+      </div>
 
       <main>
         <WeatherCard weatherData={weatherData} />

@@ -10,15 +10,15 @@ export default function WeatherCard({weatherData}) {
             <h2>
               {weatherData.cityName +
                 ", " +
-                weatherData.statename +
+                weatherData.stateName +
                 ", " +
                 weatherData.countryName}
             </h2>
             <p>{weatherData.localtime}</p>
           </div>
           <div className={styles.temp_degree}>
-            <img src={weatherData.icon} width="52" alt="" />
-            <p>{weatherData.temprature}</p>
+            <img src={weatherData.icon} width="52" alt="icon for weather condition" />
+            <p>{weatherData.temperature}</p>
             <p className={styles.celcious_text}>°C</p>
           </div>
         </section>

@@ -1,11 +1,11 @@
 @font-face {
-    font-family: defaultFont;
-    src: url("./src/assets/RobotoSerif_28pt-Regular.ttf");
+  font-family: defaultFont;
+  src: url("./src/assets/RobotoSerif_28pt-Regular.ttf");
 }
 
 @font-face {
-    font-family: tempratureFont;
-    src: url("./src/assets/Montserrat-Regular.ttf");
+  font-family: temperatureFont;
+  src: url("./src/assets/Montserrat-Regular.ttf");
 }
 
 #root {
@@ -18,31 +18,31 @@
 }
 
 header {
-    background-color: rgba(0, 0, 0, 0.877);
-    color: #ffffff;
-    display: flex;
-    padding: 12px;
-    justify-content: space-between;
+  background-color: rgba(0, 0, 0, 0.877);
+  color: #ffffff;
+  display: flex;
+  padding: 12px;
+  justify-content: space-between;
 }
 
-aside {
-    position: absolute;
-    right: 1%;
-    top: 20%;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    justify-content: center;
-    align-items: center;
-    font-size: 12px;
-    color: white;
-    background-color: rgba(0, 0, 0, 0.184);
-    padding: 12px;
-    border-radius: 12px;
-}
-
-aside:hover {
+#location_button {
+  position: absolute;
+  right: 1%;
+  top: 20%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.184);
+  padding: 12px;
+  border-radius: 12px;
+  
+  &:hover {
     background-color: black;
+  }
 }
 
 main {
@@ -56,39 +56,39 @@ main {
 }
 
 footer {
-    justify-content: end;
-    background-color: rgba(0, 0, 0, 0.877);
-    padding: 12px;
-    color: white;
-    text-align: center;
-    font-weight: 500;
-    font-size: 18px;
+  justify-content: end;
+  background-color: rgba(0, 0, 0, 0.877);
+  padding: 12px;
+  color: white;
+  text-align: center;
+  font-weight: 500;
+  font-size: 18px;
 }
 
 #notification {
-    position: absolute;
-    bottom: 5%;
-    right: 5%;
-    background-color: #e5e7eb;
-    border-radius: 12px;
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+  background-color: #e5e7eb;
+  border-radius: 12px;
 }
 
 #loader {
-    width: 42px;
-    height: 42px;
-    border: 3px solid #e5e7eb;
-    border-top: 3px solid black;
-    border-bottom: 3px solid black;
-    border-radius: 50%;
-    animation: spin 0.8s linear infinite;
-    margin-top: 12px;
-    justify-self: center;
-    align-self: center;
-    position: absolute;
+  width: 42px;
+  height: 42px;
+  border: 3px solid #e5e7eb;
+  border-top: 3px solid black;
+  border-bottom: 3px solid black;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin-top: 12px;
+  justify-self: center;
+  align-self: center;
+  position: absolute;
 }
 
 @keyframes spin {
-    to {
-        transform: rotate(360deg);
-    }
+  to {
+    transform: rotate(360deg);
+  }
 }

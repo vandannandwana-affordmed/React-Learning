@@ -4,27 +4,29 @@ import styles from "./CardsComponent.module.css";
 export default function CardsComponent() {
   const cards = [
     {
-      card_name: "SEDANS",
-      card_description:
+      cardName: "SEDANS",
+      cardDescription:
         "Choose a sedan for its affordability and excellent fuel economy. Ideal for cruising in the city or on your next road trip.",
-      card_icon: "./src/assets/icon-sedans.svg",
-      card_color: "#E38826",
-      corner_radius: "12px 0px 0px 12px",
+      cardIcon: "./src/assets/icon-sedans.svg",
+      cardColor: "#E38826",
+      cornerRadius: "12px 0px 0px 12px",
     },
     {
-      card_name: "SUVS",
-      card_description:
+      cardName: "SUVS",
+      cardDescription:
         "Take an SUV for its spacious interior, power, and versatility. Perfect for your next family vacation and off-road adventures.",
-      card_icon: "./src/assets/icon-suvs.svg",
-      card_color: "#006970",
+      cardIcon: "./src/assets/icon-suvs.svg",
+      cardColor: "#006970",
+      
+      cornerRadius: "0px 0px 0px 0px",
     },
     {
-      card_name: "LUXURY",
-      card_description:
+      cardName: "LUXURY",
+      cardDescription:
         "Cruise in the best car brands without the bloated prices. Enjoy the enhanced comfort of a luxury rental and arrive in style.",
-      card_icon: "./src/assets/icon-luxury.svg",
-      card_color: "#004241",
-      corner_radius: "0px 12px 12px 0px",
+      cardIcon: "./src/assets/icon-luxury.svg",
+      cardColor: "#004241",
+      cornerRadius: "0px 12px 12px 0px",
     },
   ];
   return (
@@ -33,11 +35,11 @@ export default function CardsComponent() {
         return (
           <CarCard
             key={index}
-            card_name={card.card_name}
-            card_description={card.card_description}
-            card_icon={card.card_icon}
-            card_color={card.card_color}
-            corner_radius={card.corner_radius}
+            cardName={card.cardName}
+            cardDescription={card.cardDescription}
+            cardIcon={card.cardIcon}
+            cardColor={card.cardColor}
+            cornerRadius={card.cornerRadius}
           />
         );
       })}

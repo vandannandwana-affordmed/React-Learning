@@ -18,7 +18,7 @@
     padding: 62px;
 }
 
-.card_name {
+.cardTitle {
     font-family: big-shoulders;
     margin-top: 36px;
     font-size: 62px;
@@ -26,7 +26,7 @@
     margin-bottom: 36px;
 }
 
-.card_description {
+.cardDescription {
     font-size: 18px;
     font-family: lexend;
     color: hsla(0, 0%, 100%, 0.75);
@@ -35,14 +35,7 @@
     text-align: start;
 }
 
-.card_section {
-    width: 100%;
-    height: 100%;
-    padding: 48px;
-    color: white;
-}
-
-.learn_more_button {
+.learnMoreButton {
     width: 70%;
     background-color: white;
     display: flex;

@@ -1,16 +1,16 @@
 import styles from './CarCard.module.css'
 
-export default function CarCard({card_name, card_description, card_icon, card_color, corner_radius}) {
+export default function CarCard({cardTitle, cardDescription, cardIcon, cardColor, cornerRadius}) {
     return (
-        <div className={styles.card} style={{backgroundColor: card_color, borderRadius: corner_radius}}>
-            <img src={card_icon} width="66px" alt="group_icon" />
-            <p class={styles.card_name}>{card_name}</p>
-            <p class={styles.card_description}>
-                {card_description}
+        <div className={styles.card} style={{backgroundColor: cardColor, borderRadius: cornerRadius}}>
+            <img src={cardIcon} width="66px" alt="car group symbol" />
+            <p class={styles.cardTitle}>{cardTitle}</p>
+            <p class={styles.cardDescription}>
+                {cardDescription}
             </p>
-            <p class={styles.learn_more_button} style={{color: card_color}}>
+            <button class={styles.learnMoreButton} style={{color: cardColor}}>
                 Learn More
-            </p>
+            </button>
         </div>
     )
 }

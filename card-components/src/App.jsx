@@ -1,12 +1,8 @@
-import './App.css'
-import CardsComponent from './CardsComponent'
+import "./App.css";
+import CardsComponent from "./CardsComponent";
 
 function App() {
-  return (
-    <>
-      <CardsComponent />
-    </>
-  )
+  return <CardsComponent />;
 }
 
-export default App
+export default App;
