@@ -17,7 +17,7 @@ export default function CardsComponent() {
         "Take an SUV for its spacious interior, power, and versatility. Perfect for your next family vacation and off-road adventures.",
       cardIcon: "./src/assets/icon-suvs.svg",
       cardColor: "#006970",
-      
+
       cornerRadius: "0px 0px 0px 0px",
     },
     {

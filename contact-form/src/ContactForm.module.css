@@ -8,11 +8,11 @@
 }
 
 .textInput {
-    max-width: 480px;
-    max-height: 480px;
-    padding: 8px;
-    height: 38px;
-    border-radius: 7px;
+  max-width: 480px;
+  max-height: 480px;
+  padding: 8px;
+  height: 38px;
+  border-radius: 7px;
 }
 
 .inputField {
@@ -23,11 +23,11 @@
 }
 
 .requiredField {
-    color: rgb(228, 1, 1);
-    display: none;
+  color: rgb(228, 1, 1);
+  display: none;
 }
 
 .nameSection {
-    display: flex;
-    gap: 12px;
+  display: flex;
+  gap: 12px;
 }

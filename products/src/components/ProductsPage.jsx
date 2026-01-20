@@ -4,10 +4,10 @@ import { useState } from "react";
 import "../styles/ProductsPage.css";
 
 export default function ProductsPage() {
-  const [search, setSearch] = useState(""); 
+  const [search, setSearch] = useState("");
 
-  const filteredProducts = productsData.filter(product =>
-    product.name.toLowerCase().includes(search.toLowerCase())
+  const filteredProducts = productsData.filter((product) =>
+    product.name.toLowerCase().includes(search.toLowerCase()),
   );
 
   return (
@@ -21,13 +21,11 @@ export default function ProductsPage() {
       />
 
       <div className="product-grid">
-        {filteredProducts.map(product => (
+        {filteredProducts.map((product) => (
           <ProductCard product={product} />
         ))}
 
-        {filteredProducts.length === 0 && (
-          <p>No products found</p>
-        )}
+        {filteredProducts.length === 0 && <p>No products found</p>}
       </div>
     </div>
   );

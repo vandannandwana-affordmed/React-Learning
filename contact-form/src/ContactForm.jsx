@@ -23,7 +23,7 @@ export default function ContactForm() {
             <input
               type="text"
               name="first_name"
-              className={styles.textInput }
+              className={styles.textInput}
               value={firstName}
               onChange={(e) => setFirstName(e.target.value)}
               required
@@ -63,15 +63,33 @@ export default function ContactForm() {
           <p>Gender Type *</p>
           <div class="radio_buttons">
             <div class="radio_button">
-              <input type="radio" value={gender} onChange={(e)=> setGender("male")} name="gender_type" required />
+              <input
+                type="radio"
+                value={gender}
+                onChange={(e) => setGender("male")}
+                name="gender_type"
+                required
+              />
               <p>Male</p>
             </div>
             <div class="radio_button">
-              <input type="radio" value={gender} onChange={(e)=> setGender("female")} name="gender_type" required />
+              <input
+                type="radio"
+                value={gender}
+                onChange={(e) => setGender("female")}
+                name="gender_type"
+                required
+              />
               <p>Female</p>
             </div>
             <div class="radio_button">
-              <input type="radio" value={gender} onChange={(e)=> setGender("other")} name="gender_type" required />
+              <input
+                type="radio"
+                value={gender}
+                onChange={(e) => setGender("other")}
+                name="gender_type"
+                required
+              />
               <p>Other</p>
             </div>
           </div>

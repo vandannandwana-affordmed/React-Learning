@@ -1,10 +1,10 @@
 @font-face {
-    font-family: Karla;
-    src: url("./src/assets/Karla-Regular.ttf");
+  font-family: Karla;
+  src: url("./src/assets/Karla-Regular.ttf");
 }
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: Karla;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Karla;
 }
