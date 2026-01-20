@@ -1,11 +1,8 @@
-import './App.css'
-import RegistrationForm from './components/RegistrationForm'
+import "./App.css";
+import RegistrationForm from "./components/RegistrationForm";
 
 function App() {
-
-  return (
-    <RegistrationForm />
-  )
+  return <RegistrationForm />;
 }
 
-export default App
+export default App;

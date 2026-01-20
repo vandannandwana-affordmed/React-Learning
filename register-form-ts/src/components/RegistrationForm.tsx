@@ -2,12 +2,12 @@ import "../styles/RegistrationForm.css";
 import { useState, type ChangeEvent, type FormEvent } from "react";
 
 interface userInfo {
-    firstName: string,
-    lastName: string,
-    email: string,
-    gender: string,
-    dateOfBirth: string,
-    consent: boolean
+  firstName: string;
+  lastName: string;
+  email: string;
+  gender: string;
+  dateOfBirth: string;
+  consent: boolean;
 }
 
 const initialState = {
@@ -30,11 +30,10 @@ export default function RegistrationForm() {
   function handleChange(e: ChangeEvent<HTMLInputElement>) {
     const { name, value, type, checked } = e.target;
 
-    setFormData(prev => ({
-        ...prev,
-        [name]: type === "checkbox" ? checked : value,
+    setFormData((prev) => ({
+      ...prev,
+      [name]: type === "checkbox" ? checked : value,
     }));
-
   }
 
   function validate(): boolean {
