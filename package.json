@@ -1,0 +1,21 @@
+{
+  "name": "husky",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "isHuskyWorking": "echo \"husky is working\"",
+    "prepare": "husky"
+  },
+  "dependencies": {
+    "typescript": "^5.9.3"
+  },
+  "devDependencies": {
+    "husky": "^9.1.7",
+    "prettier": "3.8.0"
+  }
+}
